@@ -1,18 +1,14 @@
-package middleware
-
-import (
-	"github.com/jhidalgoesp/commons/web"
-)
+package web
 
 // Middleware is a function designed to run some code before and/or after
 // another Handler. It is designed to remove boilerplate or other concerns not
 // direct to any given Handler.
-type Middleware func(handler web.Handler) web.Handler
+type Middleware func(handler Handler) Handler
 
 // WrapMiddleware creates a new handler by wrapping middleware around a final
 // handler. The middleware' Handlers will be executed by requests in the order
 // they are provided.
-func WrapMiddleware(mw []Middleware, handler web.Handler) web.Handler {
+func WrapMiddleware(mw []Middleware, handler Handler) Handler {
 
 	// Loop backwards through the middleware invoking each one. Replace the
 	// handler with the new wrapped handler. Looping backwards ensures that the

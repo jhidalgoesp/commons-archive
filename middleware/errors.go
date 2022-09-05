@@ -11,7 +11,7 @@ import (
 // Errors handles errors coming out of the call chain. It detects normal
 // application errors which are used to respond to the client in a uniform way.
 // Unexpected errors (status >= 500) are logged.
-func Errors(log *zap.SugaredLogger) Middleware {
+func Errors(log *zap.SugaredLogger) web.Middleware {
 
 	// This is the actual middleware function to be executed.
 	m := func(handler web.Handler) web.Handler {

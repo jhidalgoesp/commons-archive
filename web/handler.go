@@ -4,7 +4,6 @@ import (
 	"context"
 	"github.com/dimfeld/httptreemux/v5"
 	"github.com/google/uuid"
-	"github.com/jhidalgoesp/commons/middleware"
 	"net/http"
 	"os"
 	"syscall"
@@ -21,11 +20,11 @@ type Handler func(ctx context.Context, w http.ResponseWriter, r *http.Request) e
 type App struct {
 	*httptreemux.ContextMux
 	shutdown chan os.Signal
-	mw       []middleware.Middleware
+	mw       []Middleware
 }
 
 // NewApp creates an App value that handle a set of routes for the application.
-func NewApp(shutdown chan os.Signal, mw ...middleware.Middleware) *App {
+func NewApp(shutdown chan os.Signal, mw ...Middleware) *App {
 	mux := httptreemux.NewContextMux()
 	return &App{
 		ContextMux: mux,
@@ -40,13 +39,13 @@ func (a *App) SignalShutdown() {
 	a.shutdown <- syscall.SIGTERM
 }
 
-func (a *App) Handle(method string, group string, path string, handler Handler, mw ...middleware.Middleware) {
+func (a *App) Handle(method string, group string, path string, handler Handler, mw ...Middleware) {
 
 	// First wrap handler specific middleware around this handler.
-	handler = middleware.WrapMiddleware(mw, handler)
+	handler = WrapMiddleware(mw, handler)
 
 	// Add the application's general middleware to the handler chain.
-	handler = middleware.WrapMiddleware(a.mw, handler)
+	handler = WrapMiddleware(a.mw, handler)
 
 	// The function to execute for each request.
 	h := func(w http.ResponseWriter, r *http.Request) {

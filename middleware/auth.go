@@ -9,7 +9,7 @@ import (
 )
 
 // Authenticate validate a user is set inside the context.
-func Authenticate() Middleware {
+func Authenticate() web.Middleware {
 	// This is the actual middleware function to be executed.
 	m := func(handler web.Handler) web.Handler {
 		// Create the handler that will be attached in the middleware chain.

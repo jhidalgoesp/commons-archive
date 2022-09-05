@@ -9,7 +9,7 @@ import (
 )
 
 // CurrentUser validates a JWT from the `jwt` cookie.
-func CurrentUser() Middleware {
+func CurrentUser() web.Middleware {
 	// This is the actual middleware function to be executed.
 	m := func(handler web.Handler) web.Handler {
 
