@@ -2,8 +2,8 @@ package middleware
 
 import (
 	"context"
-	"gihub.com/jhidalgoesp/commons/validate"
-	"gihub.com/jhidalgoesp/commons/web"
+	"github.com/jhidalgoesp/commons/validate"
+	"github.com/jhidalgoesp/commons/web"
 	"go.uber.org/zap"
 	"net/http"
 )

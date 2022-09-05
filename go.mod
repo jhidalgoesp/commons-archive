@@ -1,4 +1,4 @@
-module gihub.com/jhidalgoesp/commons
+module github.com/jhidalgoesp/commons
 
 go 1.18
 
@@ -12,6 +12,7 @@ require (
 )
 
 require (
+	github.com/dimfeld/httptreemux/v5 v5.4.0 // indirect
 	github.com/leodido/go-urn v1.2.1 // indirect
 	go.uber.org/atomic v1.7.0 // indirect
 	go.uber.org/multierr v1.6.0 // indirect

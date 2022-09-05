@@ -3,7 +3,7 @@ package middleware
 import (
 	"context"
 	"fmt"
-	"gihub.com/jhidalgoesp/commons/web"
+	"github.com/jhidalgoesp/commons/web"
 	"net/http"
 	"runtime/debug"
 )

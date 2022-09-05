@@ -2,9 +2,9 @@ package middleware
 
 import (
 	"context"
-	"gihub.com/jhidalgoesp/commons/auth"
-	"gihub.com/jhidalgoesp/commons/validate"
-	"gihub.com/jhidalgoesp/commons/web"
+	"github.com/jhidalgoesp/commons/auth"
+	"github.com/jhidalgoesp/commons/validate"
+	"github.com/jhidalgoesp/commons/web"
 	"net/http"
 )
 

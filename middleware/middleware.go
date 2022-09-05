@@ -1,7 +1,7 @@
 package middleware
 
 import (
-	"gihub.com/jhidalgoesp/commons/web"
+	"github.com/jhidalgoesp/commons/web"
 )
 
 // Middleware is a function designed to run some code before and/or after
