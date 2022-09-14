@@ -23,7 +23,7 @@ func (p *Publisher) Publish(event any) error {
 		return err
 	}
 
-	err = (*p.conn).Publish("ticket:created", eventJson)
+	err = (*p.conn).Publish(p.subject, eventJson)
 	if err != nil {
 		return err
 	}
